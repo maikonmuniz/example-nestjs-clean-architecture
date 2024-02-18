@@ -4,7 +4,7 @@ import { RepositoryAccount } from "../domain/repository-contract/account.reposit
 export class createAccount {
     constructor(private readonly repositoryAccount: RepositoryAccount) {}
 
-    async execute(input: Input){
+    async execute(input: Input): Promise<Output>{
         const result = Account.createEntity(input.name, input.email, input.cpf)
         await this.repositoryAccount.insert(input)
         return result
@@ -14,5 +14,11 @@ export class createAccount {
 type Input = {
     name: string,
     email: string,
-    cpf: string    
+    password: string,
+    cpf: string   
+}
+
+type Output = {
+    name: string,
+    email: string 
 }
