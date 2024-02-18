@@ -1,6 +1,6 @@
 
 import { Account } from "../entities/account.entity";
 
-export interface repositoryAccount {
+export interface RepositoryAccount {
     insert (data: Account);
 }
